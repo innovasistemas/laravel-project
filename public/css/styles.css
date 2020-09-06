@@ -12,6 +12,15 @@ and open the template in the editor.
     color: #216a94;
 }
 
+
 .size-text1{
     font-size: 26px;
 }
+
+
+.text-content{
+    background-color: #F5716C; 
+    float: left; 
+    width: 500px;
+}
+
