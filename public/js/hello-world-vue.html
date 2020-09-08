@@ -1,0 +1,161 @@
+<!-- 
+https://vuejs.org/v2/guide/
+https://es-vuejs.github.io/vuejs.org/v2/guide/
+ -->
+
+<html lang="es"> 
+	<head> 
+		<meta charset="utf-8"> 
+		<title>Vue JS</title> 
+	</head> 
+
+	<body> 
+		<div id="app"> {{ message }} </div>
+
+ 		<div id="app-2"> 
+ 			<span v-bind:title="message"> 
+ 				¡Set your mouse over message a seconds for see the attribute `title` dinamically linked! 
+			</span> 
+		</div>
+
+	 	<div id="app-3"> 
+	 		<p v-if="seen">Now you see me app-3</p> 
+		 </div>
+		 
+	 	<div id="app-4"> 
+	 		<ol> 
+	 			<li v-for="all in alls"> {{ all.text }} </li> 
+ 			</ol>
+		</div>
+
+	 	<div id="app-5"> 
+	 		<p>{{ message }}</p> 
+	 		<button v-on:click="reverseMessage">Reverse Message</button> 
+		 </div>
+		 
+	 	<div id="app-6"> 
+	 		<p>{{ message }}</p> 
+			 <input v-model="message"> 
+		</div>
+
+		 	<ol> <!-- Crea una instancia del componente all-item  -->
+		 		<all-item></all-item> 
+			 </ol>
+			 
+	 	<div id="app-7"> 
+	 		<ol> 
+	 			<!-- Ahora le pasamos a cada all-item con el objeto all --> 
+	 			<!-- que representa, para que su contenido pueda ser dinámico --> 
+	 			<all-item v-for="item in groceryList" v-bind:all="item"></all-item> 
+ 			</ol> 
+		</div>
+
+		<div id="app-form">
+			<!-- <div v-if="!formSubmitted"> -->
+				<h3>Form data</h3>
+				<form>
+				<!-- <form v-on:submit="submitForm"> -->
+					<label>First name</label>
+					<input type="text" id="txtFirstName" v-model="firstName" />
+					<br>
+					<label>Last name</label>
+					<input type="text" id="txtLastName" v-model="lastName" />
+					<button type="button" v-bind:disabled="!isFormValid()">Continue</button>
+				</form>
+			<!-- </div> -->
+			<h4>Welcome, {{ firstName }} {{ lastName }}</h4>
+		</div>
+
+
+		 <!-- <script src="https://unpkg.com/vue/dist/vue.js"></script>  -->
+		 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+	 	<script> 
+		 	var app = new Vue({ 
+		 		el: '#app', 
+		 		data: { 
+		 			message: 'Hello Vue! app' 
+		 		} 
+		 	});
+
+			var app2 = new Vue({ 
+				el: '#app-2', 
+				data: { 
+					message: 'You loaded this page on ' + new Date() + ' app-2'
+				} 
+			});
+
+			var app3 = new Vue({ 
+				el: '#app-3', 
+				data: { 
+					seen: true 
+				} 
+			});
+
+			var app4 = new Vue({ 
+				el: '#app-4', 
+				data: { 
+					alls: [ 
+						{ text: 'Learn JavaScript' }, 
+						{ text: 'Learn Vue' }, 
+						{ text: 'Build something awesome' } 
+					] 
+				} 
+			});
+
+			var app5 = new Vue({ 
+				el: '#app-5', 
+				data: { 
+					message: 'Hello Vue.js! app-5' 
+				}, 
+				methods: { 
+					reverseMessage: function () { 
+						this.message = this.message.split('').reverse().join('') 
+					} 
+				} 
+			});
+
+			var app6 = new Vue({ 
+				el: '#app-6', 
+				data: { 
+					message: 'Hello Vue! app-6' 
+				}
+			});
+
+		 	// Define un nuevo componente llamado all-item // Vue.component('all-item', { // template: '<li>This is an all</li>' // });
+		 	Vue.component('all-item', { 
+		 		// El componente all-item ahora acepta 
+		 		// "prop", el cual es similar a un atributo personalizado 
+		 		// La propiedad se llama _todo_. props: ['all'], 
+		 		template: '<li>{{ all.text }}</li>', 
+		 	});
+
+		 	var app7 = new Vue({ 
+		 		el: '#app-7', 
+		 		data: { 
+		 			groceryList: [ 
+		 				{ text: 'Vegetables' }, 
+		 				{ text: 'Cheese' }, 
+		 				{ text: 'Whatever else humans are supposed to eat' } 
+	 				] 
+	 			} 
+	 		}); 
+
+			var appForm = new Vue({
+				el: '#app-form',
+				data: {
+					firstName: '',
+					lastName: ''
+				},
+				methods: {
+					isFormValid: function(){
+						return this.firstName != "" && this.lastName != "";
+					}
+				}
+			});
+
+			
+
+	 	</script> 
+ 	</body>
+</html>
