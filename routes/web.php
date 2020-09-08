@@ -50,7 +50,12 @@ Route::get('crud/{option}', function ($slug) {
 })->where(['option' => 'create|delete|update']);
 
 
+Route::get('test-controller', 'TestController@index');
+
+
 
 Route::post('route-post', function(){
     return "Route post";
 });
+
+
