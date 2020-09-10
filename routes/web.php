@@ -26,8 +26,8 @@ Route::get('view1', function(){
 });
 
 
-Route::get('view2', function(){
-    return view('view2');
+Route::get('view3', function(){
+    return view('view3');
 });
 
 
@@ -50,7 +50,12 @@ Route::get('crud/{option}', function ($slug) {
 })->where(['option' => 'create|delete|update']);
 
 
-Route::get('test-controller', 'TestController@index');
+Route::get('view2-controller', 'TestController@view1');
+
+
+Route::get('view4-controller', 'TestController@view2');
+
+
 
 
 

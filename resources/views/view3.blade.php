@@ -7,15 +7,16 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>View 1</title>
+        <title>View 3</title>
         <link rel="stylesheet" href="css/styles.css" />
     </head>
     <body>
         <span id="span1" class="color-text1">
         <?php
-            echo "Hello, this is the View 1 in PHP";
+            echo "Hello, this is the View 3 (blade) in PHP";
         ?>
         </span>
+        
         
         <script src="js/jquery-3.4.1.min.js"></script>
         <script>
