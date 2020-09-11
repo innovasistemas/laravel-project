@@ -56,11 +56,14 @@ Route::get('view2-controller', 'TestController@view1');
 Route::get('view4-controller', 'TestController@view2');
 
 
+Route::post('route-post', 'TestController@routePost');
 
 
 
-Route::post('route-post', function(){
-    return "Route post";
-});
+
+
+//Route::post('route-post', function(){
+//    return "Route post";
+//});
 
 

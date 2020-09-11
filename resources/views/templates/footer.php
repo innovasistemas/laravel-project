@@ -1,0 +1,1 @@
+<h2 class="color-text3">Laravel 5.5.50</h2>

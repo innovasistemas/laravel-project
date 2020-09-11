@@ -8,12 +8,13 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title>View 4</title>
-        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}" />
     </head>
     <body>
         <?php
             $data = json_decode($json, TRUE);
             $data2 = json_decode($json2, TRUE);
+            $trianRect = json_decode($jsonTR, TRUE);
         ?>
                 
         <h3>Data controller: <span id="span1" class="color-text2">{{ $title }}</span></h3>
@@ -37,6 +38,23 @@ and open the template in the editor.
         </span>
         <br>
         
+        <span class="color-text1">
+        @if(!empty($jsonTR))
+            {{ $jsonTR }} 
+        @else
+            Not data found
+        @endif
+        </span>
+        <br>
+        
+        <ul class="color-text2">
+        @foreach($trianRect as $side => $value)
+            <li>{{ $side }}: {{ $value }} </li>
+        @endforeach
+        </ul>
+        <br>
+        
+        @include('templates/footer')
         
         <script src="js/jquery-3.4.1.min.js"></script>
         <script>
