@@ -19,8 +19,10 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('profession', 100)->nullable(); // Add new column to the migration
             $table->string('password');
+            $table->unsignedInteger('professions_id');
             $table->rememberToken();
             $table->timestamps();
+            //$table->foreign('profession_id')->references('id')->on('professions');
         });
     }
 

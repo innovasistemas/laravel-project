@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddCityToUsers extends Migration
+class CreateProfessionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class AddCityToUsers extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('city', 50)->nullable()->after('email');
+        Schema::create('professions', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('description');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +27,6 @@ class AddCityToUsers extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('city');
-        });
+        Schema::dropIfExists('professions');
     }
 }
