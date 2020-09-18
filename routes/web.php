@@ -56,6 +56,33 @@ Route::get('view2-controller', 'TestController@view1');
 Route::get('view4-controller', 'TestController@view2');
 
 
+Route::get('select-db-controller/{title}', 'TestController@dbselect');
+
+
+Route::get('delete-db-controller/{id}', 'TestController@dbdelete');
+
+
+Route::get('insert-db-controller/{title}', 'TestController@dbinsert');
+
+
+Route::get('insert-model-controller/{title}', 'TestController@modelinsert');
+
+
+Route::get('select-model-controller', 'TestController@modelselect');
+
+
+Route::get('/model-professions-method', 'TestController@modelprofessionsmethod');
+
+
+Route::get('/model-professions-user', 'TestController@modelprofessionsuser');
+
+
+Route::get('/model-users-profession', 'TestController@modelusersprofession');
+
+
+Route::get('/professions', 'TestController@viewprofessions');
+
+
 Route::post('route-post', 'TestController@routePost');
 
 
