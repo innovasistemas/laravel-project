@@ -12,7 +12,7 @@ and open the template in the editor.
     </head>
     <body>
                         
-        <h3><span id="span1" class="color-text1">{{ $title }}</h3>
+        <h3 class="color-text1">{{ $title }}</h3>
                 
         <ul class="color-text2">
         @foreach($professions as $profession)
